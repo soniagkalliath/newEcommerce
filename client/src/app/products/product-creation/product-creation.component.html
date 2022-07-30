@@ -1,0 +1,57 @@
+<form [formGroup] = "productForm" (ngSubmit) = "onSubmitProduct()">  
+    <div class="container">
+        <div class="text">
+            <h1>Add Product</h1>
+        </div>
+    <div formGroupName = "productFormData">
+        <div class="your-input">
+            <div class="input">
+                <input type="text" formControlName="name" 
+                    id="name" required />
+                <label for="productName">Name</label>
+            </div>
+            <div class="input">
+                <input type="text" formControlName="description" 
+                    id="decription" required />
+                <label for="decription">
+                    Description
+                </label>
+            </div>
+            <div class = "input">
+                <input type = "text" formControlName = "price" 
+                id = "price" required>
+                <label for = "price">Price</label>
+            </div>
+            <div class = "input">
+                <input type = "text" formControlName = "imageUrl"
+                id = "imageUrl" required>
+                <label for = "imageUrl"> Image Url </label>
+            </div>
+            <div class = "input">
+                <select class="form-control">
+                    <option *ngFor="let category of categoryList" [value]="category.categoryId">{{category.categoryName}}</option>
+                </select>
+            </div>
+            <div class="input" >
+                <select class="form-control" formControlName="categoryId"> 
+                    <option *ngFor="let category of categoryList" [selected]="1 == category.categoryId" >{{category.categoryName}}</option>
+                </select>
+                <label>Categories</label>
+            </div>
+            <div class = "input"> 
+                <input type = "text" formControlName = "category" id = "category"
+                required>
+                <label for = "category"> Category </label>
+            </div>
+
+            <div class = "input">
+                <input type = "text" formControlName = "quantity" id = "quantity"
+                required>
+                <label for = "quantity"> Quantity </label>
+            </div>
+
+        </div>
+        <button type = "submit">Add Product</button>
+    </div>
+</div>
+</form>
